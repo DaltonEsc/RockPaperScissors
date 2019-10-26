@@ -1,4 +1,4 @@
-# Rock Paper Scissors Game!
+# Rock Paper Scissors Lizard Spock Game!
 
 #Found on: http://scissorsrockpaper.herokuapp.com/
 
