@@ -17,13 +17,13 @@
 
             <div class='choices'>
                 <div v-on:click="userclicked('Paper')" id='P' class="choice">
-                    <img src="https://img.icons8.com/color/50/000000/hand.png" alt="">
+                    <img src="./assets/Paper.png" alt="">
                 </div>
                 <div v-on:click="userclicked('Rock')" id="r" class="choice">
-                    <img src="https://img.icons8.com/color/50/000000/hand-rock.png" alt="">
+                    <img src="./assets/Rock.png" alt="">
                 </div>
                 <div v-on:click="userclicked('Scissors')" id='s' class="choice">
-                    <img src="https://img.icons8.com/color/48/000000/hand-scissors.png" alt="">
+                    <img src="./assets/Scissors.png" alt="">
                 </div>
             </div>
 
@@ -54,8 +54,8 @@
                 userscore: 0,
                 compscore: 0,
                 result: 'Let The Game Begin',
-                usermove: '',
-                compmove: '',
+                usermove: "",
+                compmove: "",
                 userchoice: '',
                 compchoice: '',
             }
@@ -74,15 +74,15 @@
             },
             comparison: function (choice, compchoice) {
                 if (choice === 'Paper') {
-                    this.usermove = "https://img.icons8.com/color/50/000000/hand.png";
+                    this.usermove = "https://img.icons8.com/color/48/000000/hand.png";
                     this.userchoice = 'Paper';
                     if (compchoice === 1) {
                         this.result = "Tie";
-                        this.compmove = "https://img.icons8.com/color/50/000000/hand.png";
+                        this.compmove =  "https://img.icons8.com/color/48/000000/hand.png";
                         this.compchoice = 'Paper';
                     } else if (compchoice === 2) {
                         this.result = "You Win: Paper Covers Rock";
-                        this.compmove = "https://img.icons8.com/color/50/000000/hand-rock.png";
+                        this.compmove = "https://img.icons8.com/color/48/000000/hand-rock.png";
                         this.compchoice = 'Rock';
                         this.userscore += 1;
                     } else if (compchoice === 3) {
@@ -92,16 +92,16 @@
                         this.compscore += 1;
                     }
                 } else if (choice === 'Rock') {
-                    this.usermove = "https://img.icons8.com/color/50/000000/hand-rock.png";
+                    this.usermove = "https://img.icons8.com/color/48/000000/hand-rock.png";
                     this.userchoice = 'Rock';
                     if (compchoice === 1) {
                         this.result = "You Loose: Paper Covers Rock";
-                        this.compmove = "https://img.icons8.com/color/50/000000/hand.png";
+                        this.compmove =  "https://img.icons8.com/color/48/000000/hand.png";
                         this.compchoice = 'Paper';
                         this.compscore += 1;
                     } else if (compchoice === 2) {
                         this.result = "Tie";
-                        this.compmove = "https://img.icons8.com/color/50/000000/hand-rock.png";
+                        this.compmove = "https://img.icons8.com/color/48/000000/hand-rock.png";
                         this.compchoice = 'Rock';
                     } else if (compchoice === 3) {
                         this.result = "You Win: Rock Smashes Scissors";
@@ -114,12 +114,12 @@
                     this.userchoice = 'Scissors';
                     if (compchoice === 1) {
                         this.result = "You Win: Scissors Cuts Paper";
-                        this.compmove = "https://img.icons8.com/color/50/000000/hand.png";
+                        this.compmove =  "https://img.icons8.com/color/48/000000/hand.png";
                         this.compchoice = 'Paper';
                         this.userscore += 1;
                     } else if (compchoice === 2) {
                         this.result = "You Loose: Rock Smashes Scissors";
-                        this.compmove = "https://img.icons8.com/color/50/000000/hand-rock.png";
+                        this.compmove = "https://img.icons8.com/color/48/000000/hand-rock.png";
                         this.compchoice = 'Rock';
                         this.compscore += 1;
                     } else if (compchoice === 3) {
