@@ -1,24 +1,10 @@
-# rockpaperscissors
+# Rock Paper Scissors Game!
 
-## Project setup
-```
-yarn install
-```
+#Found on: http://scissorsrockpaper.herokuapp.com/
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
 
-### Compiles and minifies for production
-```
-yarn build
-```
+#Built using Vue.js on top of Node.js
 
-### Lints and fixes files
-```
-yarn lint
-```
+#Thank you for looking at my game!
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+#Author: Dalton Eschberger
