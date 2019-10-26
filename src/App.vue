@@ -2,7 +2,7 @@
     <div id="app">
 
         <div class='header'>
-            <h1>Rock Paper Scissors</h1>
+            <h1>Rock Paper Scissors Lizard Spock</h1>
         </div>
         <div class='body'>
             <div class='score'>
@@ -14,7 +14,6 @@
             <div class='result'>
                 <p>{{result}}</p>
             </div>
-
             <div class='choices'>
                 <div v-on:click="userclicked('Paper')" id='P' class="choice">
                     <img src="./assets/Paper.png" alt="">
@@ -24,6 +23,12 @@
                 </div>
                 <div v-on:click="userclicked('Scissors')" id='s' class="choice">
                     <img src="./assets/Scissors.png" alt="">
+                </div>
+                <div v-on:click="userclicked('Lizard')" id="l" class="choice">
+                    <img src="./assets/lizard.png" alt="">
+                </div>
+                <div v-on:click="userclicked('Spock')" id='sp' class="choice">
+                    <img src="./assets/spock.png" alt="">
                 </div>
             </div>
 
@@ -62,15 +67,17 @@
         },
         methods: {
             /*
-            1 = paper, 2 = rock, 3 scissors
+            1 = paper, 2 = rock, 3 scissors, 4 lizard, 5 spock
             1 beats 2, 2 beats 3, 3 beats 1
+            <img src="https://img.icons8.com/color/48/000000/hand-lizard.png">
+            <img src="https://img.icons8.com/color/48/000000/star-trek-gesture.png">
              */
             userclicked: function (choice) {
                 this.comparison(choice, this.computerchocie())
 
             },
             computerchocie: function () {
-                return Math.floor(Math.random() * 3) + 1;
+                return Math.floor(Math.random() * 5) + 1;
             },
             comparison: function (choice, compchoice) {
                 if (choice === 'Paper') {
@@ -78,7 +85,7 @@
                     this.userchoice = 'Paper';
                     if (compchoice === 1) {
                         this.result = "Tie";
-                        this.compmove =  "https://img.icons8.com/color/48/000000/hand.png";
+                        this.compmove = "https://img.icons8.com/color/48/000000/hand.png";
                         this.compchoice = 'Paper';
                     } else if (compchoice === 2) {
                         this.result = "You Win: Paper Covers Rock";
@@ -91,12 +98,24 @@
                         this.compchoice = 'Scissors';
                         this.compscore += 1;
                     }
+                    else if(compchoice === 4){
+                        this.result = "You Loose: Lizard Eats Paper";
+                        this.compmove = "https://img.icons8.com/color/48/000000/hand-lizard.png";
+                        this.compchoice = 'Lizard';
+                        this.compscore += 1;
+                    }
+                    else if(compchoice === 5){
+                        this.result = "You Win: Paper Disproves Spock";
+                        this.compmove = "https://img.icons8.com/color/48/000000/star-trek-gesture.png";
+                        this.compchoice = 'Spock';
+                        this.userscore += 1;
+                    }
                 } else if (choice === 'Rock') {
                     this.usermove = "https://img.icons8.com/color/48/000000/hand-rock.png";
                     this.userchoice = 'Rock';
                     if (compchoice === 1) {
                         this.result = "You Loose: Paper Covers Rock";
-                        this.compmove =  "https://img.icons8.com/color/48/000000/hand.png";
+                        this.compmove = "https://img.icons8.com/color/48/000000/hand.png";
                         this.compchoice = 'Paper';
                         this.compscore += 1;
                     } else if (compchoice === 2) {
@@ -109,12 +128,24 @@
                         this.compchoice = 'Scissors';
                         this.userscore += 1;
                     }
+                    else if(compchoice === 4){
+                        this.result = "You Win: Rock Crushes Lizard";
+                        this.compmove = "https://img.icons8.com/color/48/000000/hand-lizard.png";
+                        this.compchoice = 'Lizard';
+                        this.userscore += 1;
+                    }
+                    else if(compchoice === 5){
+                        this.result = "You Loose: Spock Vaporizes Rock";
+                        this.compmove = "https://img.icons8.com/color/48/000000/star-trek-gesture.png";
+                        this.compchoice = 'Spock';
+                        this.compscore += 1;
+                    }
                 } else if (choice === 'Scissors') {
                     this.usermove = "https://img.icons8.com/color/48/000000/hand-scissors.png";
                     this.userchoice = 'Scissors';
                     if (compchoice === 1) {
                         this.result = "You Win: Scissors Cuts Paper";
-                        this.compmove =  "https://img.icons8.com/color/48/000000/hand.png";
+                        this.compmove = "https://img.icons8.com/color/48/000000/hand.png";
                         this.compchoice = 'Paper';
                         this.userscore += 1;
                     } else if (compchoice === 2) {
@@ -126,6 +157,78 @@
                         this.result = "Tie";
                         this.compmove = "https://img.icons8.com/color/48/000000/hand-scissors.png";
                         this.compchoice = 'Scissors';
+                    }
+                    else if(compchoice === 4){
+                        this.result = "You Win: Scissors Decapitates Lizard";
+                        this.compmove = "https://img.icons8.com/color/48/000000/hand-lizard.png";
+                        this.compchoice = 'Lizard';
+                        this.userscore += 1;
+                    }
+                    else if(compchoice === 5){
+                        this.result = "You Loose: Spock Smashes Scissors";
+                        this.compmove = "https://img.icons8.com/color/48/000000/star-trek-gesture.png";
+                        this.compchoice = 'Spock';
+                        this.compscore += 1;
+                    }
+                } else if (choice === 'Lizard') {
+                    this.usermove = "https://img.icons8.com/color/48/000000/hand-lizard.png";
+                    this.userchoice = 'Lizard';
+                    if (compchoice === 1) {
+                        this.result = "You Win: Lizard Eats Paper";
+                        this.compmove = "https://img.icons8.com/color/48/000000/hand.png";
+                        this.compchoice = 'Paper';
+                        this.userscore += 1;
+                    } else if (compchoice === 2) {
+                        this.result = "You Loose: Rock Crushes Lizard";
+                        this.compmove = "https://img.icons8.com/color/48/000000/hand-rock.png";
+                        this.compchoice = 'Rock';
+                        this.compscore += 1;
+                    } else if (compchoice === 3) {
+                        this.result = "You Loose: Scissors Decapitates Lizard";
+                        this.compmove = "https://img.icons8.com/color/48/000000/hand-scissors.png";
+                        this.compchoice = 'Scissors';
+                        this.compscore += 1;
+                    }
+                    else if(compchoice === 4){
+                        this.result = "Tie";
+                        this.compmove = "https://img.icons8.com/color/48/000000/hand-lizard.png";
+                        this.compchoice = 'Lizard';
+                    }
+                    else if(compchoice === 5){
+                        this.result = "You Win: Lizard Poisons Spock";
+                        this.compmove = "https://img.icons8.com/color/48/000000/star-trek-gesture.png";
+                        this.compchoice = 'Spock';
+                        this.userscore += 1;
+                    }
+                } else if (choice === 'Spock') {
+                    this.usermove = "https://img.icons8.com/color/48/000000/star-trek-gesture.png";
+                    this.userchoice = 'Spock';
+                    if (compchoice === 1) {
+                        this.result = "You Loose: Paper Disproves Spock";
+                        this.compmove = "https://img.icons8.com/color/48/000000/hand.png";
+                        this.compchoice = 'Paper';
+                        this.compscore += 1;
+                    } else if (compchoice === 2) {
+                        this.result = "You Win: Spock Vaporizes Rock";
+                        this.compmove = "https://img.icons8.com/color/48/000000/hand-rock.png";
+                        this.compchoice = 'Rock';
+                        this.userscore += 1;
+                    } else if (compchoice === 3) {
+                        this.result = "You Win: Spock Smashes Scissors";
+                        this.compmove = "https://img.icons8.com/color/48/000000/hand-scissors.png";
+                        this.compchoice = 'Scissors';
+                        this.userscore += 1;
+                    }
+                    else if(compchoice === 4){
+                        this.result = "You Loose: Lizard Poisons Spock";
+                        this.compmove = "https://img.icons8.com/color/48/000000/hand-lizard.png";
+                        this.compchoice = 'Lizard';
+                        this.compscore += 1;
+                    }
+                    else if(compchoice === 5){
+                        this.result = "Tie";
+                        this.compmove = "https://img.icons8.com/color/48/000000/star-trek-gesture.png";
+                        this.compchoice = 'Spock';
                     }
                 }
             }
